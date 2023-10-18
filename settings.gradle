@@ -1,0 +1,4 @@
+
+rootProject.name = 'dependency-resolver'
+include('dependency-explorer')
+include('nexus-explorer')

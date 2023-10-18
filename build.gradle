@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+subprojects {
+    tasks.withType(Test) {
+        useJUnitPlatform()
+    }
+}

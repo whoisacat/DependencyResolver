@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    version = APP_VERSION
+    sourceCompatibility = 17
+    targetCompatibility = 17
+    mainClass = 'ru.gpb.ccl.tools.nexus.explorer.Main'
+    group = 'ru.gpb.ccl'
+    archivesBaseName = 'nexus-explorer'
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes(
+                'Main-Class': 'ru.gpb.ccl.tools.nexus.explorer.Main'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+test {
+    useJUnitPlatform()
+}
