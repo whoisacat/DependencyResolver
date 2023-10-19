@@ -2,9 +2,7 @@ package ru.gpb.ccl.tools.nexus.explorer.application.persistence;
 
 import ru.gpb.ccl.tools.nexus.explorer.application.domain.entity.Dependency;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class InMemoryDependanciesStorage implements DependanciesStorage {
     private final Set<Dependency> existedDependencies = new HashSet<>();
@@ -39,5 +37,26 @@ public class InMemoryDependanciesStorage implements DependanciesStorage {
     @Override
     public void addToErrorCauses(Dependency dependency) {
         errorCausesDependencies.add(dependency);
+    }
+
+    @Override
+    public String getAllString() {
+
+        List<String> list = new LinkedList<>();
+
+        list.add("existed:");
+        list.addAll(existedDependencies.stream()
+                .map(Object::toString)
+                .toList());
+        list.add("new:");
+        list.addAll(newDependencies.stream()
+                .map(Object::toString)
+                .toList());
+        list.add("error causes:");
+        list.addAll(errorCausesDependencies.stream()
+                .map(Object::toString)
+                .toList());
+
+        return String.join(System.lineSeparator(),list);
     }
 }

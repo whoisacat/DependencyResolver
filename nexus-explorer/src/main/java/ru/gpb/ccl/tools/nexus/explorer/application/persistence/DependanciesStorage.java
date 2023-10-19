@@ -17,4 +17,6 @@ public interface DependanciesStorage {
     void addToNew(Dependency dependency);
 
     void addToErrorCauses(Dependency dependency);
+
+    String getAllString();
 }
