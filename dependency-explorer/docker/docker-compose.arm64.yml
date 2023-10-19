@@ -1,0 +1,9 @@
+version: '3'
+services:
+  updater:
+    container_name: dependency_explorer
+    image: whoisacat/dependency-explorer:init.arm64
+    privileged: true
+    restart: on-failure
+    volumes:
+      - /tmp/dependency_explorer:/files

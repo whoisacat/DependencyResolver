@@ -33,7 +33,7 @@ public class Main {
                 dependanciesStorage).start();
     }
 
-    private final static String directory = "./files/";
+    private final static String directory = "/files/";
     private final static String inputFile = directory + "dependencies.txt";
     private final static String outputFile = directory + "out%s.txt";
     private final static String settingsFile = directory + "settings.txt";

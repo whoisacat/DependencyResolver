@@ -1,0 +1,9 @@
+version: '3'
+services:
+  updater:
+    container_name: nexus_explorer
+    image: whoisacat/nexus-explorer:init.arm64
+    privileged: true
+    restart: on-failure
+    volumes:
+      - /tmp/nexus_explorer:/files

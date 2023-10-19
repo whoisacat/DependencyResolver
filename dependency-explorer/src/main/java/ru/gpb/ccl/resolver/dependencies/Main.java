@@ -28,7 +28,7 @@ public class Main {
     }
 
     private void run() {
-        String gradleBuildLogFile = "./gradle.build.log";
+        String gradleBuildLogFile = "/files/gradle.build.log";
         String gradleBuildLogContent;
         try {
             gradleBuildLogContent = Files.readString(Path.of(gradleBuildLogFile));
@@ -44,7 +44,7 @@ public class Main {
                 .collect(Collectors.joining("\n"));
 
         try {
-            Files.writeString(Path.of("./dependencies.txt"), links);
+            Files.writeString(Path.of("/files/dependencies.txt"), links);
         } catch (IOException e) {
             logger.error("cant wright to file {}", gradleBuildLogFile, e);
             throw new RuntimeException(e);
