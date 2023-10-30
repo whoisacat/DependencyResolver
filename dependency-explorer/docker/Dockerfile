@@ -1,4 +1,4 @@
-FROM openjdk:17.0.1-jdk-slim as dependency_explorer_app
+FROM gradle:7.6.3-jdk17-jammy as dependency_explorer_app
 
 RUN apt-get --yes update
 RUN apt-get --yes install git
@@ -10,7 +10,7 @@ WORKDIR $PROJECT_DIR
 RUN mkdir /files
 VOLUME /files
 
-#ARG JAR_FILE=$PROJECT_DIR/commentsBlockerAdmin/comments-blocker-admin/target/*.jar
 COPY ./build/libs/*.jar $PROJECT_DIR/app.jar
+COPY ./docker/entrypoint-script.sh $PROJECT_DIR/script.sh
 
-ENTRYPOINT ["java", "-jar", "/opt/project/app.jar"]
+ENTRYPOINT ["/opt/project/script.sh"]

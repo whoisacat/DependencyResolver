@@ -2,7 +2,7 @@ version: '3'
 services:
   updater:
     container_name: dependency_explorer
-    image: whoisacat/dependency-explorer:init
+    image: whoisacat/dependency-explorer:entrypoint-script
     privileged: true
     restart: on-failure
     volumes:
