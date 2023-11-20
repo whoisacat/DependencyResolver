@@ -4,7 +4,7 @@
 <Папка утилиты>/docker/start-script.sh
 
 ### Запуск контейнеров внутри контура
-Не реализовано, не занесено. Можно запустить jar собрав самостоятельно или обратившись к автору.
+Не занесено. Можно запустить jar собрав самостоятельно или обратившись к автору.
 
 ###### Подробное описание в файле ADRs/ADR2-correction-main-principles.md
 
@@ -36,11 +36,11 @@
 **NexusExplorer** ему будет необходим файл с URL nexus, данными для аутентификации в nexus и по размещению SSL 
 сертефикатов. Пример содержимого:
 
-`url:::<Протокол://Доменное имя/repository/какой репозиторий/>
-username:::Имя пользователя
-password:::пароль
-ssl:::com.sun.security.enableAIAcaIssuers=true
-ssl:::javax.net.ssl.trustStore=путь до доверенного хранилища
-ssl:::javax.net.ssl.trustStorePassword=пароль от хранилища`
+`url:::<Протокол://Доменное имя/repository/какой репозиторий/>`  
+`username:::Имя пользователя`  
+`password:::пароль`  
+`ssl:::com.sun.security.enableAIAcaIssuers=true`  
+`ssl:::javax.net.ssl.trustStore=<путь до доверенного хранилища>`  
+`ssl:::javax.net.ssl.trustStorePassword=<пароль от хранилища>`  
 
 5. Дальше по существующим процессам.
